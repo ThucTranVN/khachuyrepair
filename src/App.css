@@ -1406,6 +1406,143 @@ html {
   }
 }
 
+/* Responsive How We Work Section */
+@media (max-width: 1024px) {
+  .how-we-work-content {
+    gap: 3rem;
+  }
+  
+  .how-we-work-left {
+    padding-right: 1rem;
+    padding-left: 2rem;
+  }
+  
+  .how-we-work-title {
+    font-size: 2.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .how-we-work-section {
+    padding: 60px 0;
+  }
+  
+  .how-we-work-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .how-we-work-left {
+    padding-right: 0;
+    padding-left: 0;
+    order: 2;
+  }
+  
+  .how-we-work-right {
+    order: 1;
+  }
+  
+  .how-we-work-title {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+  
+  .how-we-work-subtitle {
+    text-align: center;
+  }
+  
+  .how-we-work-subtitle-text {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .repair-steps {
+    gap: 2rem;
+  }
+  
+  .repair-step {
+    gap: 1rem;
+    padding: 1rem;
+    min-height: 80px;
+  }
+  
+  .step-icon {
+    font-size: 2rem;
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+  }
+  
+  .step-description {
+    font-size: 0.95rem;
+  }
+  
+  .how-we-work-image {
+    max-height: 350px;
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .how-we-work-section {
+    padding: 30px 0;
+  }
+  
+  .how-we-work-title {
+    font-size: 2rem;
+  }
+  
+  .how-we-work-subtitle-text {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 0 1rem;
+  }
+  
+  .repair-steps {
+    gap: 1.5rem;
+  }
+  
+  .repair-step {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: rgba(255, 127, 39, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 127, 39, 0.1);
+  }
+  
+  .step-icon {
+    font-size: 1.75rem;
+    width: 45px;
+    height: 45px;
+    margin: 0 auto;
+  }
+  
+  .step-content {
+    text-align: center;
+  }
+  
+  .step-number {
+    margin: 0 auto 0.5rem auto;
+  }
+  
+  .step-description {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    padding: 0 0.5rem;
+  }
+  
+  .how-we-work-image {
+    max-height: 300px;
+  }
+  
+  .how-we-work-section .container {
+    padding: 0 15px;
+  }
+}
+
 /* Blog Cards */
 .blog-card {
   background: white !important;
