@@ -1,3 +1,4 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c5e1bf95-c29e-4c91-b2de-a3b07a01e405/deploy-status)](https://app.netlify.com/projects/khachuyrepair/deploys)
 # Khắc Huy Repair - Landing Page
 
 A modern, responsive landing page for Khắc Huy Repair, a professional iPhone and iPad repair service in Ho Chi Minh City.
