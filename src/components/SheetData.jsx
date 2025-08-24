@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
-const SheetData = ({ sheetId, apiKey, range, onDataLoaded, onLoadingChange, onErrorChange }) => {
+const SheetData = ({ sheetId, apiKey, range, onDataLoaded, onLoadingChange, onErrorChange, mode = 'blog' }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
-
 
   // Function to clean URLs from text
   const cleanDescription = (text) => {
@@ -48,17 +46,25 @@ const SheetData = ({ sheetId, apiKey, range, onDataLoaded, onLoadingChange, onEr
         const result = await response.json();
 
         if (result.values && result.values.length > 0) {
-          const formattedData = result.values.slice(1).map((row, index) => ({
-            id: index,
-            date: row[0] || '',
-            category: row[1] || 'Technology',
-            title: row[2] || '',
-            description: cleanDescription(row[3] || ''),
-            author: row[4] || 'Khắc Huy',
-            authorImage: row[5] || '/tiktok-thumbnail.png',
-            image: row[6] || '/tiktok-thumbnail.png',
-            url: row[3] || '#'
-          }));
+          let formattedData;
+          
+          if (mode === 'table') {
+            // For table mode, return raw data as-is
+            formattedData = result.values;
+          } else {
+            // For blog mode, transform the data
+            formattedData = result.values.slice(1).map((row, index) => ({
+              id: index,
+              date: row[0] || '',
+              category: row[1] || 'Technology',
+              title: row[2] || '',
+              description: cleanDescription(row[3] || ''),
+              author: row[4] || 'Khắc Huy',
+              authorImage: row[5] || '/tiktok-thumbnail.png',
+              image: row[6] || '/tiktok-thumbnail.png',
+              url: row[3] || '#'
+            }));
+          }
 
           setData(formattedData);
           
@@ -89,7 +95,7 @@ const SheetData = ({ sheetId, apiKey, range, onDataLoaded, onLoadingChange, onEr
     if (sheetId && apiKey && range) {
       fetchSheetData();
     }
-  }, [sheetId, apiKey, range]);
+  }, [sheetId, apiKey, range, mode]);
 
   // Return null - this component doesn't render anything
   return null;
