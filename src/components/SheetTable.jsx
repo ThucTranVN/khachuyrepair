@@ -1,11 +1,6 @@
 import React from 'react';
 
 const SheetTable = ({ rows }) => {
-  // Debug logging
-  console.log('SheetTable received rows:', rows);
-  console.log('Rows type:', typeof rows);
-  console.log('Rows length:', rows?.length);
-
   if (!rows || rows.length === 0) {
     return (
       <div className="w-full bg-gradient-to-br from-gray-900 to-black rounded-3xl p-12 text-center border border-gray-700/50 shadow-2xl">
@@ -20,7 +15,6 @@ const SheetTable = ({ rows }) => {
 
   // Ensure rows is an array
   if (!Array.isArray(rows)) {
-    console.error('Rows is not an array:', rows);
     return (
       <div className="w-full bg-gradient-to-br from-gray-900 to-black rounded-3xl p-12 text-center border border-gray-700/50 shadow-2xl">
         <div className="w-20 h-20 bg-gradient-to-br from-red-400 to-red-600 rounded-full mx-auto mb-6 flex items-center justify-center">
@@ -50,7 +44,6 @@ const SheetTable = ({ rows }) => {
 
   // Ensure headers and subHeaders are arrays
   if (!Array.isArray(headers) || !Array.isArray(subHeaders)) {
-    console.error('Headers or subHeaders are not arrays:', { headers, subHeaders });
     return (
       <div className="w-full bg-gradient-to-br from-gray-900 to-black rounded-3xl p-12 text-center border border-gray-700/50 shadow-2xl">
         <div className="w-20 h-20 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full mx-auto mb-6 flex items-center justify-center">
@@ -155,7 +148,6 @@ const SheetTable = ({ rows }) => {
             {dataRows.map((row, rowIndex) => {
               // Ensure row is an array
               if (!Array.isArray(row)) {
-                console.warn('Row is not an array:', row);
                 return null;
               }
               

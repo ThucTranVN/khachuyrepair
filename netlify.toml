@@ -1,0 +1,14 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# Disable the problematic plugin
+[[plugins]]
+  package = "netlify-plugin-no-more-404"
+  enabled = false
+
+# SPA routing redirects
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

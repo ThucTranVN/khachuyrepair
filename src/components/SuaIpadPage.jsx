@@ -102,36 +102,6 @@ const SuaIpadPage = () => {
               }}
               ref={(el) => {
                 if (el) {
-                  // Debug logging for real-time CSS inspection
-                  const computedStyle = window.getComputedStyle(el);
-                  const paddingLeft = computedStyle.paddingLeft;
-                  const paddingRight = computedStyle.paddingRight;
-                  const screenWidth = window.innerWidth;
-                  const isLargeScreen = screenWidth >= 1024;
-                  
-                  // Check what's overriding our styles
-                  const inlineStyle = el.style.paddingLeft;
-                  const tailwindClass = el.classList.contains('lg:px-32');
-                  
-                  console.log('🔍 DEBUG - Table Container CSS:', {
-                    element: el,
-                    screenWidth,
-                    isLargeScreen,
-                    computedPaddingLeft: paddingLeft,
-                    computedPaddingRight: paddingRight,
-                    inlineStyleLeft: inlineStyle,
-                    tailwindClassExists: tailwindClass,
-                    classes: el.className,
-                    breakpoint: 'lg: (1024px)',
-                    allComputedStyles: {
-                      padding: computedStyle.padding,
-                      paddingLeft: computedStyle.paddingLeft,
-                      paddingRight: computedStyle.paddingRight,
-                      margin: computedStyle.margin,
-                      width: computedStyle.width
-                    }
-                  });
-                  
                   // Force re-render on resize for debugging
                   const handleResize = () => {
                     const newComputedStyle = window.getComputedStyle(el);
@@ -141,14 +111,6 @@ const SuaIpadPage = () => {
                     // Update inline styles on resize
                     el.style.paddingLeft = newPadding;
                     el.style.paddingRight = newPadding;
-                    
-                    console.log('🔄 RESIZE DEBUG:', {
-                      newScreenWidth,
-                      newPadding,
-                      newComputedPaddingLeft: newComputedStyle.paddingLeft,
-                      newComputedPaddingRight: newComputedStyle.paddingRight,
-                      updatedInlineStyle: el.style.paddingLeft
-                    });
                   };
                   
                   window.addEventListener('resize', handleResize);
@@ -188,15 +150,6 @@ const SuaIpadPage = () => {
                       // Calculate scale to fit table in available width
                       const optimalScale = Math.min(1, availableWidth / estimatedTableWidth);
                       
-                      console.log('📱 SCALE CALCULATION:', {
-                        screenWidth,
-                        estimatedTableWidth,
-                        mobilePadding,
-                        availableWidth,
-                        optimalScale,
-                        scalePercentage: `${(optimalScale * 100).toFixed(1)}%`
-                      });
-                      
                       return optimalScale;
                     };
                     
@@ -220,22 +173,8 @@ const SuaIpadPage = () => {
                       if (outerContainer) {
                         outerContainer.style.height = 'auto';
                         outerContainer.style.minHeight = 'auto';
-                        console.log('🔧 OUTER CONTAINER HEIGHT ADJUSTED:', {
-                          element: outerContainer,
-                          height: 'auto',
-                          minHeight: 'auto'
-                        });
                       }
                       
-                      console.log('🔧 MOBILE SCALE COMPENSATION:', {
-                        scale: optimalScale,
-                        scaleCompensation,
-                        width: `${scaleCompensation * 100}%`,
-                        maxWidth: `${scaleCompensation * 100}%`,
-                        height: 'auto (scaled)',
-                        minHeight: 'auto (scaled)',
-                        outerContainerAdjusted: !!outerContainer
-                      });
                     } else {
                       tableEl.style.transform = 'none';
                       tableEl.style.width = '100%';
@@ -248,48 +187,10 @@ const SuaIpadPage = () => {
                       if (outerContainer) {
                         outerContainer.style.height = 'auto';
                         outerContainer.style.minHeight = 'auto';
-                        console.log('🔧 OUTER CONTAINER HEIGHT RESET (DESKTOP):', {
-                          element: outerContainer,
-                          height: 'auto',
-                          minHeight: 'auto'
-                        });
                       }
                     }
                     
                     // Enhanced debugging for width issues
-                    console.log('🎯 RESPONSIVE TABLE DEBUG:', {
-                      element: tableEl,
-                      screenWidth,
-                      isLargeScreen,
-                      transform: computedStyle.transform,
-                      scale: computedStyle.transform.includes('scale') ? computedStyle.transform : 'none',
-                      inlineTransform: tableEl.style.transform,
-                      inlineOrigin: tableEl.style.transformOrigin,
-                      width: computedStyle.width,
-                      maxWidth: computedStyle.maxWidth,
-                      height: computedStyle.height,
-                      minHeight: computedStyle.minHeight,
-                      overflow: computedStyle.overflow,
-                      optimalScale,
-                      scalePercentage: `${(optimalScale * 100).toFixed(1)}%`,
-                      // Additional width debugging
-                      actualWidth: tableEl.offsetWidth,
-                      scrollWidth: tableEl.scrollWidth,
-                      clientWidth: tableEl.clientWidth,
-                      actualHeight: tableEl.offsetHeight,
-                      scrollHeight: tableEl.scrollHeight,
-                      clientHeight: tableEl.clientHeight,
-                      computedWidth: computedStyle.width,
-                      computedHeight: computedStyle.height,
-                      inlineWidth: tableEl.style.width,
-                      inlineMaxWidth: tableEl.style.maxWidth,
-                      inlineHeight: tableEl.style.height,
-                      inlineMinHeight: tableEl.style.minHeight,
-                      // Outer container debugging
-                      outerContainer: tableEl.closest('.mb-16'),
-                      outerContainerHeight: tableEl.closest('.mb-16')?.style.height,
-                      outerContainerMinHeight: tableEl.closest('.mb-16')?.style.minHeight
-                    });
                     
                     // Update styles on resize
                     const handleTableResize = () => {
@@ -311,14 +212,6 @@ const SuaIpadPage = () => {
                           outerContainer.style.minHeight = 'auto';
                         }
                         
-                        console.log('🔄 DESKTOP RESIZE:', {
-                          width: '100%',
-                          maxWidth: 'none',
-                          height: 'auto',
-                          minHeight: 'auto',
-                          transform: 'none',
-                          outerContainerHeight: 'auto'
-                        });
                       } else {
                         // Mobile: calculate optimal scale and compensate width
                         const newOptimalScale = Math.min(1, (newScreenWidth - 24) / 1200);
@@ -339,42 +232,12 @@ const SuaIpadPage = () => {
                           outerContainer.style.height = 'auto';
                           outerContainer.style.minHeight = 'auto';
                         }
-                        
-                        console.log('🔄 MOBILE SCALE UPDATE:', {
-                          newScreenWidth,
-                          newOptimalScale,
-                          newScalePercentage: `${(newOptimalScale * 100).toFixed(1)}%`,
-                          newScaleCompensation,
-                          newWidth: `${newScaleCompensation * 100}%`,
-                          newMaxWidth: `${newScaleCompensation * 100}%`,
-                          newHeight: 'auto (scaled)',
-                          newMinHeight: 'auto (scaled)',
-                          outerContainerHeight: 'auto (adjusted)'
-                        });
                       }
                       
                       tableEl.style.transformOrigin = isLarge ? 'initial' : 'top left';
                       tableEl.style.overflow = 'visible';
                       
                       // Enhanced resize debugging
-                      const newComputedStyle = window.getComputedStyle(tableEl);
-                      console.log('🔄 TABLE RESIZE DEBUG:', {
-                        newScreenWidth,
-                        isLarge,
-                        newTransform: tableEl.style.transform,
-                        newOrigin: tableEl.style.transformOrigin,
-                        newWidth: tableEl.style.width,
-                        newMaxWidth: tableEl.style.maxWidth,
-                        newHeight: tableEl.style.height,
-                        newMinHeight: tableEl.style.minHeight,
-                        newComputedWidth: newComputedStyle.width,
-                        newComputedHeight: newComputedStyle.height,
-                        newActualWidth: tableEl.offsetWidth,
-                        newActualHeight: tableEl.offsetHeight,
-                        newScrollWidth: tableEl.scrollWidth,
-                        newScrollHeight: tableEl.scrollHeight,
-                        outerContainerHeight: tableEl.closest('.mb-16')?.style.height
-                      });
                     };
                     
                     window.addEventListener('resize', handleTableResize);
