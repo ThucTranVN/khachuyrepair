@@ -60,6 +60,18 @@ const FooterComponent = () => {
         
         <div className="footer-bottom">
           <p>&copy; 2025 Khắc Huy Repair. All rights reserved.</p>
+          <p className="tdk-credit">
+            Website made with ❤️ by{' '}
+            <a 
+              href="https://tdk.best/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="tdk-link"
+              style={{ color: '#f97316' }}
+            >
+              TDK
+            </a>
+          </p>
         </div>
       </div>
     </footer>

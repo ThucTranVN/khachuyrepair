@@ -8,14 +8,14 @@ const Header = () => {
   const location = useLocation();
 
   const navigationItems = [
-    { name: 'Trang chủ', href: '/', showOnBlog: true, showOnHome: false, showOnServices: true },
+    { name: 'Trang chủ', href: '/', showOnBlog: true, showOnHome: false, showOnServices: true, showOnIphone: true, showOnIpad: true, showOnPhuKien: true },
     // { name: 'Dịch vụ', href: '#services', showOnBlog: false, showOnHome: true, showOnServices: false },
-    { name: 'Sửa iPhone', href: '/sua-iphone', showOnBlog: false, showOnHome: true, showOnServices: false },
-    { name: 'Sửa iPad', href: '/sua-ipad', showOnBlog: false, showOnHome: true, showOnServices: false },
-    { name: 'Phụ kiện', href: '/phu-kien', showOnBlog: false, showOnHome: true, showOnServices: false },
-    { name: 'Giới thiệu', href: '#about', showOnBlog: false, showOnHome: true, showOnServices: false },
-    { name: 'Blog', href: '/blog', showOnBlog: false, showOnHome: true, showOnServices: false },
-    { name: 'Liên hệ', href: '#contact', showOnBlog: false, showOnHome: true, showOnServices: false },
+    { name: 'Sửa iPhone', href: '/sua-iphone', showOnBlog: true, showOnHome: true, showOnServices: false, showOnIphone: false, showOnIpad: true, showOnPhuKien: true },
+    { name: 'Sửa iPad', href: '/sua-ipad', showOnBlog: true, showOnHome: true, showOnServices: false, showOnIphone: true, showOnIpad: false, showOnPhuKien: true },
+    { name: 'Phụ kiện', href: '/phu-kien', showOnBlog: true, showOnHome: true, showOnServices: false, showOnIphone: true, showOnIpad: true, showOnPhuKien: false },
+    { name: 'Giới thiệu', href: '#about', showOnBlog: false, showOnHome: true, showOnServices: false, showOnIphone: false, showOnIpad: false, showOnPhuKien: false },
+    { name: 'Blog', href: '/blog', showOnBlog: false, showOnHome: true, showOnServices: false, showOnIphone: true, showOnIpad: true, showOnPhuKien: true },
+    { name: 'Liên hệ', href: '#contact', showOnBlog: false, showOnHome: true, showOnServices: false, showOnIphone: false, showOnIpad: false, showOnPhuKien: false },
   ];
 
   const handleLogoClick = () => {
@@ -39,6 +39,9 @@ const Header = () => {
   const isOnBlogPage = location.pathname === '/blog';
   const isOnHomePage = location.pathname === '/';
   const isOnServicePage = ['/sua-iphone', '/sua-ipad', '/phu-kien'].includes(location.pathname);
+  const isOnIphonePage = location.pathname === '/sua-iphone';
+  const isOnIpadPage = location.pathname === '/sua-ipad';
+  const isOnPhuKienPage = location.pathname === '/phu-kien';
 
   // Filter navigation items based on current page
   const getVisibleNavigationItems = () => {
@@ -48,6 +51,13 @@ const Header = () => {
       } else if (isOnHomePage) {
         return item.showOnHome;
       } else if (isOnServicePage) {
+        if (isOnIphonePage) {
+          return item.showOnIphone;
+        } else if (isOnIpadPage) {
+          return item.showOnIpad;
+        } else if (isOnPhuKienPage) {
+          return item.showOnPhuKien;
+        }
         return item.showOnServices;
       }
       return true; // Show all on other pages
