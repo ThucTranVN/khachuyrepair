@@ -48,6 +48,33 @@ const HeroComponent = () => {
               <div className="stats-number">2.5k <span className="highlight">+</span></div>
               <div className="stats-label">KHÁCH HÀNG Ở HCM.</div>
             </div>
+            
+            {/* New Promotional Section */}
+            <div className="promo-section">
+              <div className="promo-header">
+                <span className="gift-icon">🎁</span>
+                <span className="promo-title">Khi sửa iPhone tại Khắc Huy Repair, bạn sẽ được:</span>
+              </div>
+              <div className="promo-benefits">
+                <div className="benefit-item">
+                  <span className="check-icon">✅</span>
+                  <span className="benefit-text">Kiểm tra full máy miễn phí</span>
+                </div>
+                <div className="benefit-item">
+                  <span className="check-icon">✅</span>
+                  <span className="benefit-text">Vệ sinh full máy miễn phí</span>
+                </div>
+                <div className="benefit-item">
+                  <span className="check-icon">✅</span>
+                  <span className="benefit-text">Dán lại ron kháng nước miễn phí</span>
+                </div>
+                <div className="benefit-item">
+                  <span className="check-icon">✅</span>
+                  <span className="benefit-text">Dán cường lực miễn phí</span>
+                </div>
+              </div>
+            </div>
+            
             <div className="expert-section">
               <div className="expert-avatar">
                 <div className="avatar-placeholder">👨‍🔧</div>

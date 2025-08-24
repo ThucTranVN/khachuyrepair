@@ -346,6 +346,259 @@ html {
   letter-spacing: 0.1em;
 }
 
+/* Promotional Section Styles */
+.promo-section {
+  background: linear-gradient(135deg, rgba(255, 127, 39, 0.1), rgba(255, 127, 39, 0.05));
+  border: 1px solid rgba(255, 127, 39, 0.2);
+  border-radius: 16px;
+  padding: 1.5rem;
+  max-width: 320px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(255, 127, 39, 0.1);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+  animation: promoEntrance 0.8s ease-out;
+}
+
+.promo-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.6s ease;
+}
+
+.promo-section::after {
+  content: '✨';
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 1.5rem;
+  opacity: 0.6;
+  animation: sparkleFloat 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes sparkleFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.6;
+  }
+  25% {
+    transform: translateY(-8px) rotate(90deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-15px) rotate(180deg);
+    opacity: 0.8;
+  }
+  75% {
+    transform: translateY(-8px) rotate(270deg);
+    opacity: 1;
+  }
+}
+
+.promo-section:hover::before {
+  left: 100%;
+}
+
+.promo-section:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: rgba(255, 127, 39, 0.4);
+  box-shadow: 0 20px 60px rgba(255, 127, 39, 0.2), 0 0 40px rgba(255, 127, 39, 0.1);
+  background: linear-gradient(135deg, rgba(255, 127, 39, 0.15), rgba(255, 127, 39, 0.08));
+  animation: promoGlow 2s ease-in-out infinite;
+}
+
+@keyframes promoGlow {
+  0%, 100% {
+    box-shadow: 0 20px 60px rgba(255, 127, 39, 0.2), 0 0 40px rgba(255, 127, 39, 0.1);
+  }
+  50% {
+    box-shadow: 0 20px 60px rgba(255, 127, 39, 0.3), 0 0 60px rgba(255, 127, 39, 0.2), 0 0 80px rgba(255, 127, 39, 0.1);
+  }
+}
+
+.promo-section:hover::after {
+  animation: sparkleFloat 1s ease-in-out infinite;
+  transform: scale(1.5);
+}
+
+@keyframes promoEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+  }
+  50% {
+    transform: translateY(-5px) scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.promo-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+.promo-section:hover .promo-header {
+  transform: translateX(5px);
+}
+
+.gift-icon {
+  font-size: 1.5rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  transition: all 0.4s ease;
+  animation: giftFloat 3s ease-in-out infinite;
+}
+
+.promo-section:hover .gift-icon {
+  transform: rotate(15deg) scale(1.2);
+  filter: drop-shadow(0 4px 8px rgba(255, 127, 39, 0.4));
+}
+
+@keyframes giftFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.promo-title {
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.3;
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.promo-section:hover .promo-title {
+  color: #FF7F27;
+  text-shadow: 0 0 10px rgba(255, 127, 39, 0.3);
+}
+
+.promo-benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  transition: all 0.3s ease;
+  padding: 0.5rem;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.benefit-item::before {
+  content: '';
+  position: absolute;
+  left: -100%;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 127, 39, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.benefit-item:hover::before {
+  left: 100%;
+}
+
+.benefit-item:hover {
+  transform: translateX(8px);
+  background: rgba(255, 127, 39, 0.05);
+  border-radius: 8px;
+}
+
+.benefit-item:hover .check-icon {
+  transform: scale(1.3) rotate(10deg);
+  color: #059669;
+  filter: drop-shadow(0 2px 8px rgba(16, 185, 129, 0.5));
+}
+
+/* Magnetic effect for benefit items */
+.benefit-item {
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.benefit-item:active {
+  transform: scale(0.95);
+}
+
+/* Glow effect on hover */
+.benefit-item:hover {
+  box-shadow: 0 0 20px rgba(255, 127, 39, 0.2);
+}
+
+/* Staggered animation for benefit items */
+.benefit-item:nth-child(1) { animation: slideInLeft 0.6s ease-out 0.1s both; }
+.benefit-item:nth-child(2) { animation: slideInLeft 0.6s ease-out 0.2s both; }
+.benefit-item:nth-child(3) { animation: slideInLeft 0.6s ease-out 0.3s both; }
+.benefit-item:nth-child(4) { animation: slideInLeft 0.6s ease-out 0.4s both; }
+
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.check-icon {
+  font-size: 1rem;
+  color: #10b981;
+  filter: drop-shadow(0 1px 2px rgba(16, 185, 129, 0.3));
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+  transition: all 0.3s ease;
+  animation: checkPulse 2s ease-in-out infinite;
+}
+
+@keyframes checkPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.benefit-text {
+  color: #e5e5e5;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  text-align: left;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.benefit-item:hover .benefit-text {
+  color: #ffffff;
+  font-weight: 600;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
 .expert-section {
   display: flex;
   align-items: center;

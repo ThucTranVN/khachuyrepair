@@ -9,7 +9,10 @@ const Header = () => {
 
   const navigationItems = [
     { name: 'Trang chủ', href: '/', showOnBlog: true, showOnHome: false, showOnServices: true },
-    { name: 'Dịch vụ', href: '#services', showOnBlog: false, showOnHome: true, showOnServices: false },
+    // { name: 'Dịch vụ', href: '#services', showOnBlog: false, showOnHome: true, showOnServices: false },
+    { name: 'Sửa iPhone', href: '/sua-iphone', showOnBlog: false, showOnHome: true, showOnServices: false },
+    { name: 'Sửa iPad', href: '/sua-ipad', showOnBlog: false, showOnHome: true, showOnServices: false },
+    { name: 'Phụ kiện', href: '/phu-kien', showOnBlog: false, showOnHome: true, showOnServices: false },
     { name: 'Giới thiệu', href: '#about', showOnBlog: false, showOnHome: true, showOnServices: false },
     { name: 'Blog', href: '/blog', showOnBlog: false, showOnHome: true, showOnServices: false },
     { name: 'Liên hệ', href: '#contact', showOnBlog: false, showOnHome: true, showOnServices: false },
