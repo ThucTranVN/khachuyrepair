@@ -42,7 +42,7 @@ const FooterComponent = () => {
                 <img src={tiktokIcon} alt="TikTok" className="social-icon" />
                 <span>TikTok: @khachuyrepair</span>
               </a>
-              <a href="https://www.facebook.com/khachuyrepair.iphone" target="_blank" rel="noopener noreferrer" className="social-link">
+              <a href="https://www.facebook.com/khachuyrepair" target="_blank" rel="noopener noreferrer" className="social-link">
                 <img src={facebookIcon} alt="Facebook" className="social-icon" />
                 <span>Fanpage: Khắc Huy Repair</span>
               </a>
