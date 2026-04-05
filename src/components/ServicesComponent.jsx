@@ -9,21 +9,21 @@ const ServicesComponent = () => {
   const services = [
     {
       icon: <Smartphone className="w-12 h-12 text-orange-500" />,
-      title: 'Sửa iPhone',
+      title: 'Giá sửa iPhone',
       description: 'Chuyên sửa chữa iPhone với đội ngũ kỹ thuật viên giàu kinh nghiệm. Thay màn hình, pin, camera và các linh kiện khác.',
       link: 'Xem dịch vụ',
       path: '/sua-iphone'
     },
     {
       icon: <Tablet className="w-12 h-12 text-orange-500" />,
-      title: 'Sửa iPad',
+      title: 'Giá sửa iPad',
       description: 'Dịch vụ sửa chữa iPad chuyên nghiệp, sửa màn hình, thay pin, khắc phục các vấn đề phần cứng và phần mềm.',
       link: 'Xem dịch vụ',
       path: '/sua-ipad'
     },
     {
       icon: <Package className="w-12 h-12 text-orange-500" />,
-      title: 'Phụ kiện',
+      title: 'Giá phụ kiện',
       description: 'Cung cấp đầy đủ phụ kiện chính hãng cho iPhone, iPad: sạc, tai nghe, ốp lưng, màn hình và nhiều hơn nữa.',
       link: 'Xem dịch vụ',
       path: '/phu-kien'

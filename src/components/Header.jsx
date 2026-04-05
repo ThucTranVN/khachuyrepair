@@ -10,9 +10,9 @@ const Header = () => {
   const navigationItems = [
     { name: 'Trang chủ', href: '/', showOnBlog: true, showOnHome: false, showOnServices: true, showOnIphone: true, showOnIpad: true, showOnPhuKien: true },
     // { name: 'Dịch vụ', href: '#services', showOnBlog: false, showOnHome: true, showOnServices: false },
-    { name: 'Sửa iPhone', href: '/sua-iphone', showOnBlog: true, showOnHome: true, showOnServices: false, showOnIphone: false, showOnIpad: true, showOnPhuKien: true },
-    { name: 'Sửa iPad', href: '/sua-ipad', showOnBlog: true, showOnHome: true, showOnServices: false, showOnIphone: true, showOnIpad: false, showOnPhuKien: true },
-    { name: 'Phụ kiện', href: '/phu-kien', showOnBlog: true, showOnHome: true, showOnServices: false, showOnIphone: true, showOnIpad: true, showOnPhuKien: false },
+    { name: 'Giá sửa iPhone', href: '/sua-iphone', showOnBlog: true, showOnHome: true, showOnServices: false, showOnIphone: false, showOnIpad: true, showOnPhuKien: true },
+    { name: 'Giá sửa iPad', href: '/sua-ipad', showOnBlog: true, showOnHome: true, showOnServices: false, showOnIphone: true, showOnIpad: false, showOnPhuKien: true },
+    { name: 'Giá phụ kiện', href: '/phu-kien', showOnBlog: true, showOnHome: true, showOnServices: false, showOnIphone: true, showOnIpad: true, showOnPhuKien: false },
     { name: 'Giới thiệu', href: '#about', showOnBlog: false, showOnHome: true, showOnServices: false, showOnIphone: false, showOnIpad: false, showOnPhuKien: false },
     { name: 'Blog', href: '/blog', showOnBlog: false, showOnHome: true, showOnServices: false, showOnIphone: true, showOnIpad: true, showOnPhuKien: true },
     { name: 'Liên hệ', href: '#contact', showOnBlog: false, showOnHome: true, showOnServices: false, showOnIphone: false, showOnIpad: false, showOnPhuKien: false },
