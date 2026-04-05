@@ -1,11 +1,59 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import googleMapsIcon from '../assets/logo/google-maps.png';
 import facebookIcon from '../assets/logo/facebook.png';
 import tiktokIcon from '../assets/logo/tik-tok.png';
 import youtubeIcon from '../assets/logo/youtube.png';
 import zaloIcon from '../assets/logo/zalo-icon.png';
+import { supabase } from '../utils/supabase';
+
+const VISITOR_SESSION_KEY = 'khr_visited';
+const INITIAL_COUNT = 22000;
+const VISITOR_ROW_ID = 1;
+
+function useVisitorCount() {
+  const [count, setCount] = useState(null);
+
+  useEffect(() => {
+    async function trackVisit() {
+      const alreadyVisited = sessionStorage.getItem(VISITOR_SESSION_KEY);
+
+      const { data } = await supabase
+        .from('visitors')
+        .select('count')
+        .eq('id', VISITOR_ROW_ID)
+        .single();
+
+      if (!data) {
+        // No row yet — insert initial row
+        const initialCount = INITIAL_COUNT + (alreadyVisited ? 0 : 1);
+        await supabase
+          .from('visitors')
+          .insert({ id: VISITOR_ROW_ID, count: initialCount });
+        setCount(initialCount);
+      } else if (!alreadyVisited) {
+        // New session — increment
+        const newCount = data.count + 1;
+        await supabase
+          .from('visitors')
+          .update({ count: newCount })
+          .eq('id', VISITOR_ROW_ID);
+        setCount(newCount);
+      } else {
+        setCount(data.count);
+      }
+
+      sessionStorage.setItem(VISITOR_SESSION_KEY, '1');
+    }
+
+    trackVisit();
+  }, []);
+
+  return count;
+}
 
 const FooterComponent = () => {
+  const visitorCount = useVisitorCount();
+
   return (
     <footer className="footer" id="contact">
       <div className="container">
@@ -59,6 +107,11 @@ const FooterComponent = () => {
         </div>
         
         <div className="footer-bottom">
+          {visitorCount !== null && (
+            <p className="visitor-count">
+              Lượt truy cập: <strong>{visitorCount.toLocaleString('vi-VN')}</strong>
+            </p>
+          )}
           <p>&copy; 2025 Khắc Huy Repair. All rights reserved.</p>
           <p className="tdk-credit">
             Website made with ❤️ by{' '}

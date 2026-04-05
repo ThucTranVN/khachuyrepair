@@ -976,6 +976,15 @@ html {
   color: #888888;
 }
 
+.visitor-count {
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+
+.visitor-count strong {
+  color: #f97316;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .header .container {
