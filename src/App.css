@@ -212,12 +212,18 @@ html {
 }
 
 .video-section {
-  display: flex;
+  display: none;
   align-items: center;
   gap: 1rem;
   margin-top: 2rem;
   /* Ensure clean appearance */
   position: relative;
+}
+
+@media (min-width: 768px) {
+  .video-section {
+    display: flex;
+  }
 }
 
 .video-link {
@@ -294,9 +300,15 @@ html {
 
 /* Center Section - Hero Image */
 .hero-center {
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
+}
+
+@media (min-width: 768px) {
+  .hero-center {
+    display: flex;
+  }
 }
 
 .hero-image-container {
@@ -1361,10 +1373,16 @@ html {
 }
 
 .services-grid {
-  display: grid;
+  display: none;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2rem;
   margin-top: 3rem;
+}
+
+@media (min-width: 768px) {
+  .services-grid {
+    display: grid;
+  }
 }
 
 .service-card {

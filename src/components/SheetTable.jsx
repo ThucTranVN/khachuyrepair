@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SheetTable = ({ rows }) => {
+const SheetTable = ({ rows, stickyFirstColumn = false }) => {
   if (!rows || rows.length === 0) {
     return (
       <div className="w-full bg-gradient-to-br from-gray-900 to-black rounded-3xl p-12 text-center border border-gray-700/50 shadow-2xl">
@@ -101,13 +101,14 @@ const SheetTable = ({ rows }) => {
           <thead>
             <tr>
               {headers.map((header, index) => (
-                <th 
-                  key={index} 
+                <th
+                  key={index}
                   className="px-10 py-6 text-center font-bold text-lg border-r border-gray-600/20 last:border-r-0 whitespace-normal shadow-lg"
-                  style={{ 
+                  style={{
                     color: '#ffffff',
                     background: getColumnColor(index),
-                    padding: '8px 4px'
+                    padding: '8px 4px',
+                    ...(stickyFirstColumn && index === 0 ? { position: 'sticky', left: 0, zIndex: 30 } : {})
                   }}
                 >
                   <div className="flex flex-col items-center gap-2">
@@ -125,14 +126,15 @@ const SheetTable = ({ rows }) => {
             {/* Sub Headers - Softer, More Elegant */}
             <tr>
               {subHeaders.map((subHeader, index) => (
-                <th 
-                  key={index} 
+                <th
+                  key={index}
                   className="px-10 py-4 text-center font-medium text-sm border-r border-gray-600/20 last:border-r-0 whitespace-normal"
-                  style={{ 
+                  style={{
                     color: '#ffffff',
                     background: getSubHeaderColor(index),
                     opacity: 0.9,
-                    padding: '8px 4px'
+                    padding: '8px 4px',
+                    ...(stickyFirstColumn && index === 0 ? { position: 'sticky', left: 0, zIndex: 30 } : {})
                   }}
                 >
                   <span 
@@ -170,14 +172,15 @@ const SheetTable = ({ rows }) => {
                         ${cellIndex === 0 ? 'font-bold text-left' : 'text-center'}
                         transition-all duration-300
                       `}
-                      style={{ 
-                        color: cellIndex === 0 ? '#ffffff' : 
+                      style={{
+                        color: cellIndex === 0 ? '#ffffff' :
                                cell === 'Liên Hệ' ? '#60a5fa' :
                                cell === '✓' || cell === 'Yes' || cell === 'Có' ? '#10b981' :
                                cell === '✗' || cell === 'No' || cell === 'Không' ? '#ef4444' :
                                '#e5e7eb',
-                        backgroundColor: cellIndex === 0 ? 'rgba(31, 41, 55, 0.8)' : 'transparent',
-                        padding: '8px 4px'
+                        backgroundColor: cellIndex === 0 ? 'rgba(31, 41, 55, 0.95)' : 'transparent',
+                        padding: '8px 4px',
+                        ...(stickyFirstColumn && cellIndex === 0 ? { position: 'sticky', left: 0, zIndex: 10 } : {})
                       }}
                     >
                       <div className={`
