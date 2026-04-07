@@ -1,0 +1,24 @@
+{
+  "name": "Khắc Huy Repair",
+  "short_name": "Khắc Huy",
+  "description": "Chuyên sửa chữa iPhone, iPad và cung cấp phụ kiện chất lượng cao tại TP.HCM",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#f97316",
+  "lang": "vi",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
