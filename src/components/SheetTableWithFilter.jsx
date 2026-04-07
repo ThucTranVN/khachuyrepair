@@ -36,17 +36,34 @@ const SheetTableWithFilter = ({ rows }) => {
 
   return (
     <div>
+      <style>{`
+        .filter-btn-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 12px;
+          margin-bottom: 28px;
+          padding: 0 20px;
+        }
+        .filter-btn-grid .filter-btn {
+          width: 100%;
+        }
+        @media (min-width: 768px) {
+          .filter-btn-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            padding: 0;
+          }
+          .filter-btn-grid .filter-btn {
+            width: auto;
+          }
+        }
+      `}</style>
+
       {/* Service filter — buttons if ≤8, dropdown if >8 */}
       {serviceColumns.length <= 8 ? (
-        <div
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            gap: '10px',
-            marginBottom: '20px',
-            justifyContent: 'center',
-          }}
-        >
+        <div className="filter-btn-grid">
           {serviceColumns.map((col) => {
             const isActive = selectedColIndex === col.index;
             const btnColor = colColors[(col.index - 1) % colColors.length];
@@ -55,15 +72,15 @@ const SheetTableWithFilter = ({ rows }) => {
                 key={col.index}
                 onClick={() => setSelectedColIndex(col.index)}
                 dangerouslySetInnerHTML={{ __html: formatText(col.label) }}
+                className="filter-btn"
                 style={{
-                  padding: '8px 18px',
-                  borderRadius: '10px',
+                  padding: '11px 20px',
+                  borderRadius: '12px',
                   fontWeight: '600',
                   fontSize: '14px',
                   cursor: 'pointer',
                   border: '2px solid',
                   transition: 'all 0.2s ease',
-                  whiteSpace: 'nowrap',
                   ...(isActive
                     ? {
                         background: btnColor,

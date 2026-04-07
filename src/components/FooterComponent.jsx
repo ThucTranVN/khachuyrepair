@@ -98,9 +98,9 @@ const FooterComponent = () => {
                 <img src={youtubeIcon} alt="YouTube" className="social-icon" />
                 <span>YouTube: @khachuyrepair</span>
               </a>
-              <a href="https://zalo.me/0393.296.576" target="_blank" rel="noopener noreferrer" className="social-link">
+              <a href="https://zalo.me/0977285289" target="_blank" rel="noopener noreferrer" className="social-link">
                 <img src={zaloIcon} alt="Zalo" className="social-icon" />
-                <span>Zalo: 0393.296.576</span>
+                <span>Zalo: 0977285289</span>
               </a>
             </div>
           </div>
