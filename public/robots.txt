@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://khachuyrepair.com/sitemap.xml
