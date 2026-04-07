@@ -101,6 +101,8 @@ const Header = () => {
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="mobile-menu-toggle"
+                aria-label={isMenuOpen ? 'Đóng menu' : 'Mở menu'}
+                aria-expanded={isMenuOpen}
               >
                 <svg className="hamburger-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   {isMenuOpen ? (

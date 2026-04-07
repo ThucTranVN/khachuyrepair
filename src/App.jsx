@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { lazy, Suspense, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header';
@@ -7,10 +7,11 @@ import ServicesComponent from './components/ServicesComponent';
 import AboutComponent from './components/AboutComponent';
 import BlogComponent from './components/BlogComponent';
 import FooterComponent from './components/FooterComponent';
-import BlogPage from './components/BlogPage';
-import SuaIphonePage from './components/SuaIphonePage';
-import SuaIpadPage from './components/SuaIpadPage';
-import PhuKienPage from './components/PhuKienPage';
+
+const BlogPage = lazy(() => import('./components/BlogPage'));
+const SuaIphonePage = lazy(() => import('./components/SuaIphonePage'));
+const SuaIpadPage = lazy(() => import('./components/SuaIpadPage'));
+const PhuKienPage = lazy(() => import('./components/PhuKienPage'));
 
 // ScrollToTop component to handle smooth scrolling on route changes
 function ScrollToTop() {
@@ -42,10 +43,10 @@ function App() {
               <FooterComponent />
             </>
           } />
-          <Route path="/blog" element={<BlogPage />} />
-          <Route path="/sua-iphone" element={<SuaIphonePage />} />
-          <Route path="/sua-ipad" element={<SuaIpadPage />} />
-          <Route path="/phu-kien" element={<PhuKienPage />} />
+          <Route path="/blog" element={<Suspense fallback={null}><BlogPage /></Suspense>} />
+          <Route path="/sua-iphone" element={<Suspense fallback={null}><SuaIphonePage /></Suspense>} />
+          <Route path="/sua-ipad" element={<Suspense fallback={null}><SuaIpadPage /></Suspense>} />
+          <Route path="/phu-kien" element={<Suspense fallback={null}><PhuKienPage /></Suspense>} />
         </Routes>
       </div>
     </Router>

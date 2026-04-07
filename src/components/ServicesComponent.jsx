@@ -152,6 +152,9 @@ const ServicesComponent = () => {
             src={homeRepairImg}
             alt="Mobile Repair Services"
             className="bridge-image"
+            width="800"
+            height="332"
+            loading="lazy"
           />
         </div>
 

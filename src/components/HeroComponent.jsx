@@ -34,10 +34,14 @@ const HeroComponent = () => {
           {/* Middle Section - Hero Image */}
           <div className="hero-center">
             <div className="hero-image-container">
-              <img 
-                src={heroImg} 
-                alt="Khắc Huy Repair Hero Image" 
+              <img
+                src={heroImg}
+                alt="Khắc Huy Repair Hero Image"
                 className="hero-image"
+                width="480"
+                height="480"
+                fetchpriority="high"
+                decoding="sync"
               />
             </div>
           </div>

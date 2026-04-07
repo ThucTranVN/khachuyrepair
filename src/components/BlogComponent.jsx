@@ -96,10 +96,11 @@ const BlogComponent = () => {
             <div className="sheet-data">
               <div className="blog-cards-container">
                 {/* Left Arrow - positioned at left edge */}
-                <button 
-                  onClick={goToPrevious} 
-                  className="nav-arrow nav-arrow-left" 
+                <button
+                  onClick={goToPrevious}
+                  className="nav-arrow nav-arrow-left"
                   disabled={!canGoPrevious}
+                  aria-label="Bài trước"
                 >
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M15 18L9 12L15 6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -158,10 +159,11 @@ const BlogComponent = () => {
                 </div>
 
                 {/* Right Arrow - positioned at right edge */}
-                <button 
-                  onClick={goToNext} 
-                  className="nav-arrow nav-arrow-right" 
+                <button
+                  onClick={goToNext}
+                  className="nav-arrow nav-arrow-right"
                   disabled={!canGoNext}
+                  aria-label="Bài tiếp theo"
                 >
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M9 18L15 12L9 6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -172,9 +174,9 @@ const BlogComponent = () => {
               {/* Load More Button */}
               {hasMoreData && !showAll && (
                 <div className="load-more-section mt-8 text-center">
-                  <button 
+                  <button
                     onClick={() => navigate('/blog')}
-                    className="bg-[#FF6600] hover:bg-[#E55A00] text-white font-medium px-8 py-3 rounded-xl transition-all duration-300 hover:shadow-lg transform hover:scale-105"
+                    className="bg-[#c44d00] hover:bg-[#a33f00] text-white font-medium px-8 py-3 rounded-xl transition-all duration-300 hover:shadow-lg transform hover:scale-105"
                   >
                     Xem thêm
                   </button>
