@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import googleMapsIcon from '../assets/logo/google-maps.png';
-import facebookIcon from '../assets/logo/facebook.png';
-import tiktokIcon from '../assets/logo/tik-tok.png';
-import youtubeIcon from '../assets/logo/youtube.png';
+import googleMapsIcon from '../assets/logo/google-maps.webp';
+import facebookIcon from '../assets/logo/facebook.webp';
+import tiktokIcon from '../assets/logo/tik-tok.webp';
+import youtubeIcon from '../assets/logo/youtube.webp';
 import zaloIcon from '../assets/logo/zalo-icon.png';
-import { supabase } from '../utils/supabase';
 
 const VISITOR_SESSION_KEY = 'khr_visited';
 const INITIAL_COUNT = 22000;
@@ -15,6 +14,7 @@ function useVisitorCount() {
 
   useEffect(() => {
     async function trackVisit() {
+      const { supabase } = await import('../utils/supabase');
       const alreadyVisited = sessionStorage.getItem(VISITOR_SESSION_KEY);
 
       const { data } = await supabase
@@ -24,14 +24,12 @@ function useVisitorCount() {
         .single();
 
       if (!data) {
-        // No row yet — insert initial row
         const initialCount = INITIAL_COUNT + (alreadyVisited ? 0 : 1);
         await supabase
           .from('visitors')
           .insert({ id: VISITOR_ROW_ID, count: initialCount });
         setCount(initialCount);
       } else if (!alreadyVisited) {
-        // New session — increment
         const newCount = data.count + 1;
         await supabase
           .from('visitors')

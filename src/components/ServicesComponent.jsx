@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Smartphone, Tablet, Package } from 'lucide-react';
-import homeRepairImg from '../assets/logo/home-repair-img.png';
+import homeRepairImg from '../assets/logo/home-repair-img.webp';
 import SheetData from './SheetData';
 import SheetTableWithFilter from './SheetTableWithFilter';
 

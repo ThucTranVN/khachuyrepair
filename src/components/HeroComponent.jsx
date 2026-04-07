@@ -1,5 +1,5 @@
 import React from 'react';
-import heroImg from '../assets/logo/hero-img.png';
+import heroImg from '../assets/logo/hero-img.webp';
 
 const HeroComponent = () => {
   return (

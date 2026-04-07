@@ -6,8 +6,8 @@ import HeroComponent from './components/HeroComponent';
 import ServicesComponent from './components/ServicesComponent';
 import AboutComponent from './components/AboutComponent';
 import BlogComponent from './components/BlogComponent';
-import FooterComponent from './components/FooterComponent';
 
+const FooterComponent = lazy(() => import('./components/FooterComponent'));
 const BlogPage = lazy(() => import('./components/BlogPage'));
 const SuaIphonePage = lazy(() => import('./components/SuaIphonePage'));
 const SuaIpadPage = lazy(() => import('./components/SuaIpadPage'));
@@ -40,7 +40,7 @@ function App() {
               <ServicesComponent />
               <AboutComponent />
               <BlogComponent />
-              <FooterComponent />
+              <Suspense fallback={null}><FooterComponent /></Suspense>
             </>
           } />
           <Route path="/blog" element={<Suspense fallback={null}><BlogPage /></Suspense>} />

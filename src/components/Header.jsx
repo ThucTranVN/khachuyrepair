@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import logo from '../assets/logo/logo.png';
+import logo from '../assets/logo/logo.webp';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

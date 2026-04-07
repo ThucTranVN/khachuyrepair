@@ -1,6 +1,6 @@
 import React from 'react';
-import homeAboutUsImg from '../assets/logo/home-about-us.png';
-import home3StepsImg from '../assets/logo/home-3-steps.png';
+import homeAboutUsImg from '../assets/logo/home-about-us.webp';
+import home3StepsImg from '../assets/logo/home-3-steps.webp';
 
 const AboutComponent = () => {
   const statistics = [
