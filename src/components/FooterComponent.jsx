@@ -108,9 +108,9 @@ const FooterComponent = () => {
               </a>
 
               <h4 className="footer-contact-group">Khắc Huy</h4>
-              <a href="https://www.tiktok.com/@khachuyrepair" target="_blank" rel="noopener noreferrer" className="social-link">
+              <a href="https://www.tiktok.com/@duongkhachuy.repair" target="_blank" rel="noopener noreferrer" className="social-link">
                 <img src={tiktokIcon} alt="TikTok Khắc Huy" className="social-icon" />
-                <span>TikTok Khắc Huy: @khachuyrepair</span>
+                <span>TikTok Khắc Huy: @duongkhachuy.repair</span>
               </a>
               <a href="https://www.facebook.com/duongkhachuy.repair" target="_blank" rel="noopener noreferrer" className="social-link">
                 <img src={facebookIcon} alt="Facebook Khắc Huy" className="social-icon" />
