@@ -978,6 +978,23 @@ html {
   object-fit: contain;
 }
 
+.social-icon-svg {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.footer-contact-group {
+  margin: 0.5rem 0 0;
+  font-size: 1.1rem;
+  color: #FF7F27;
+  font-weight: 600;
+}
+
+.footer-contact-group:first-child {
+  margin-top: 0;
+}
+
 .footer-bottom {
   border-top: 1px solid #333;
   padding-top: 2rem;

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Instagram } from 'lucide-react';
 import googleMapsIcon from '../assets/logo/google-maps.webp';
 import facebookIcon from '../assets/logo/facebook.webp';
 import tiktokIcon from '../assets/logo/tik-tok.webp';
@@ -84,21 +85,50 @@ const FooterComponent = () => {
           <div className="footer-right">
             <h3>Liên Hệ</h3>
             <div className="social-links">
-              <a href="https://www.tiktok.com/@khachuyrepair" target="_blank" rel="noopener noreferrer" className="social-link">
-                <img src={tiktokIcon} alt="TikTok" className="social-icon" />
-                <span>TikTok: @khachuyrepair</span>
+              <h4 className="footer-contact-group">Tiệm</h4>
+              <a href="https://www.tiktok.com/@khachuyrepair.com" target="_blank" rel="noopener noreferrer" className="social-link">
+                <img src={tiktokIcon} alt="TikTok Tiệm" className="social-icon" />
+                <span>TikTok Tiệm: @khachuyrepair.com</span>
               </a>
               <a href="https://www.facebook.com/khachuyrepair" target="_blank" rel="noopener noreferrer" className="social-link">
-                <img src={facebookIcon} alt="Facebook" className="social-icon" />
-                <span>Fanpage: Khắc Huy Repair</span>
+                <img src={facebookIcon} alt="Fanpage Tiệm" className="social-icon" />
+                <span>Fanpage Tiệm: facebook.com/khachuyrepair</span>
+              </a>
+              <a href="https://www.instagram.com/khachuyrepair" target="_blank" rel="noopener noreferrer" className="social-link">
+                <Instagram className="social-icon-svg" size={24} aria-hidden="true" />
+                <span>Instagram Tiệm: instagram.com/khachuyrepair</span>
               </a>
               <a href="https://www.youtube.com/@khachuyrepair" target="_blank" rel="noopener noreferrer" className="social-link">
                 <img src={youtubeIcon} alt="YouTube" className="social-icon" />
-                <span>YouTube: @khachuyrepair</span>
+                <span>YouTube: youtube.com/@khachuyrepair</span>
+              </a>
+              <a href="https://share.google/Bgrz8VGZaEH0e8RVX" target="_blank" rel="noopener noreferrer" className="social-link">
+                <img src={googleMapsIcon} alt="Google" className="social-icon" />
+                <span>Google: share.google/Bgrz8VGZaEH0e8RVX</span>
+              </a>
+
+              <h4 className="footer-contact-group">Khắc Huy</h4>
+              <a href="https://www.tiktok.com/@khachuyrepair" target="_blank" rel="noopener noreferrer" className="social-link">
+                <img src={tiktokIcon} alt="TikTok Khắc Huy" className="social-icon" />
+                <span>TikTok Khắc Huy: @khachuyrepair</span>
+              </a>
+              <a href="https://www.facebook.com/duongkhachuy.repair" target="_blank" rel="noopener noreferrer" className="social-link">
+                <img src={facebookIcon} alt="Facebook Khắc Huy" className="social-icon" />
+                <span>Facebook Khắc Huy: facebook.com/duongkhachuy.repair</span>
+              </a>
+              <a href="https://www.instagram.com/duongkhachuy.repair" target="_blank" rel="noopener noreferrer" className="social-link">
+                <Instagram className="social-icon-svg" size={24} aria-hidden="true" />
+                <span>Instagram Khắc Huy: instagram.com/duongkhachuy.repair</span>
+              </a>
+
+              <h4 className="footer-contact-group">Zalo - Hotline</h4>
+              <a href="https://zalo.me/0972403556" target="_blank" rel="noopener noreferrer" className="social-link">
+                <img src={zaloIcon} alt="Zalo" className="social-icon" />
+                <span>0972 403 556</span>
               </a>
               <a href="https://zalo.me/0977285289" target="_blank" rel="noopener noreferrer" className="social-link">
                 <img src={zaloIcon} alt="Zalo" className="social-icon" />
-                <span>Zalo: 0977285289</span>
+                <span>0977 285 289</span>
               </a>
             </div>
           </div>
